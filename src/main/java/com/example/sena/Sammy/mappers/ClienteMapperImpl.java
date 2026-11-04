@@ -24,7 +24,7 @@ public class ClienteMapperImpl implements ClienteMapper {
         .nomb(cliente.getNom())
         .apell(cliente.getApe())
         .direc(cliente.getDir())
-        .pts(cliente.getPuntos())
+        .tele(cliente.getTel())
 
          //atributos de cliente
         .tipCli(cliente.getTipoCliente())
@@ -46,6 +46,7 @@ public class ClienteMapperImpl implements ClienteMapper {
         .id(clienteDto.getId())
         .nom(clienteDto.getNomb())
         .ape(clienteDto.getApell())
+        .dir(clienteDto.getDirec())
         .tel(clienteDto.getTele())
 
         .tipoCliente(clienteDto.getTipCli())

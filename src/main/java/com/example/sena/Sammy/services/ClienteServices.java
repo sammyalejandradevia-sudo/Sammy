@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.sena.Sammy.dtos.ClienteDto;
 
-public interface ClieteServices {
+public interface ClienteServices {
 
     //Registrar un nuevo cliente
     ClienteDto guardar(ClienteDto clienteDto);
@@ -13,7 +13,7 @@ public interface ClieteServices {
     List<ClienteDto>listarTodos();
 
     //Consultar  cliente por Id
-    ClienteDto buscarporid(Long id);
+    ClienteDto buscarporId(Long id);
 
     //Actualizar Usuario
     ClienteDto actualizar(Long id, ClienteDto clienteDto);
