@@ -3,22 +3,23 @@ package com.example.sena.Sammy.services;
 import java.util.List;
 
 import com.example.sena.Sammy.dtos.ClienteDto;
+import com.example.sena.Sammy.dtos.ClienteDtoResponse;
 
 public interface ClienteServices {
 
     //Registrar un nuevo cliente
-    ClienteDto guardar(ClienteDto clienteDto);
+    ClienteDtoResponse guardar(ClienteDto clienteDto);
 
     //Listar todos los clientes
-    List<ClienteDto>listarTodos();
+    List<ClienteDtoResponse>listarTodos();
 
     //Consultar  cliente por Id
-    ClienteDto buscarporId(Long id);
+    ClienteDtoResponse buscarporId(Long id);
 
     //Actualizar Usuario
-    ClienteDto actualizar(Long id, ClienteDto clienteDto);
+    ClienteDtoResponse actualizar(Long id, ClienteDto clienteDto);
 
     //Eliminar usuario
-    ClienteDto eliminar(Long id, ClienteDto clienteDto);
+    ClienteDtoResponse eliminar(Long id, ClienteDto clienteDto);
 
 }

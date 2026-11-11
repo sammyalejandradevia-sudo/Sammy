@@ -1,5 +1,6 @@
 package com.example.sena.Sammy.dtos;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 public class ClienteDto  extends UsuarioDto{
 
 
-    private String tipCli;
+    private Byte tipCli;
     private Integer pts;
 
 }

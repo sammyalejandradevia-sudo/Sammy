@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sena.Sammy.dtos.ClienteDto;
+import com.example.sena.Sammy.dtos.ClienteDtoResponse;
 import com.example.sena.Sammy.services.ClienteServices;
 
 import jakarta.validation.Valid;
@@ -29,8 +30,8 @@ public class ClienteController {
 
     //Registrar nuevo cliente
     @PostMapping 
-    public ResponseEntity<ClienteDto> guardar(@Valid @RequestBody ClienteDto clienteDto){
-        ClienteDto clienteguardado = clienteServices.guardar(clienteDto);
+    public ResponseEntity<ClienteDtoResponse> guardar(@Valid @RequestBody ClienteDto clienteDto){
+        ClienteDtoResponse clienteguardado = clienteServices.guardar(clienteDto);
 
         return  ResponseEntity
             .status(HttpStatus.CREATED)
@@ -39,33 +40,33 @@ public class ClienteController {
 
     //Listar usuario
     @GetMapping
-    public ResponseEntity <List<ClienteDto>>listarTodos() {
+    public ResponseEntity <List<ClienteDtoResponse>>listarTodos() {
         return ResponseEntity.ok(clienteServices.listarTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDto>consultaId(@PathVariable Long id) {
+    public ResponseEntity<ClienteDtoResponse>consultaId(@PathVariable Long id) {
         return ResponseEntity.ok(clienteServices.buscarporId(id));
     }
     
     //Consultar por post
     @PostMapping("/buscar")
-    public ResponseEntity<ClienteDto>consultaIdpost(@RequestBody ClienteDto dto) {
-    ClienteDto encontrado=clienteServices.buscarporId(dto.getId());
+    public ResponseEntity<ClienteDtoResponse>consultaIdpost(@RequestBody ClienteDto dto) {
+    ClienteDtoResponse encontrado=clienteServices.buscarporId(dto.getId());
     return ResponseEntity.ok(encontrado);
 }
 
     //Actualizar por put
     @PutMapping("/{id}")
-    public ResponseEntity<ClienteDto> update(@PathVariable Long id, @RequestBody ClienteDto dto) {
-    ClienteDto clienteActualizado = clienteServices.actualizar(id, dto);
+    public ResponseEntity<ClienteDtoResponse> update(@PathVariable Long id, @RequestBody ClienteDto dto) {
+    ClienteDtoResponse clienteActualizado = clienteServices.actualizar(id, dto);
     return ResponseEntity.ok(clienteActualizado);
 }
 
     //Actualizar sin id
     @PutMapping("/actualizar")
-    public ResponseEntity<ClienteDto> update( @RequestBody ClienteDto dto) {
-    ClienteDto clienteActualizado = clienteServices.actualizar(dto.getId(),dto);
+    public ResponseEntity<ClienteDtoResponse> update( @RequestBody ClienteDto dto) {
+    ClienteDtoResponse clienteActualizado = clienteServices.actualizar(dto.getId(),dto);
     return ResponseEntity.ok(clienteActualizado);
 }
 

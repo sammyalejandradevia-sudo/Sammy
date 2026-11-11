@@ -2,6 +2,9 @@ package com.example.sena.Sammy.models.usuarios;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -20,9 +23,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder 
 
 public class Cliente extends Usuario {
+   // @Enumerated  (EnumType.ORDINAL)
+    //@Enumerated (EnumType.STRING)
+  @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "tipo_cliente", nullable =false)
+   private TiposCliente tipoCliente;
 
-    @Column (name = "tipo_Cliente")
-    private String tipoCliente;
     @Column (name = "puntos")
     private Integer puntos;
 
